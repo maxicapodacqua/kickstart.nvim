@@ -348,12 +348,8 @@ require('lazy').setup({
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-<<<<<<< HEAD
         ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-=======
         ['<leader>h'] = { name = '[H]unk git', _ = 'which_key_ignore' },
->>>>>>> a51136c (Customizing my own neovim :D)
       }
       -- visual mode
       require('which-key').register({
