@@ -208,6 +208,23 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+
+-- Turn off relative number in insert mode
+vim.api.nvim_create_autocmd({ 'VimEnter', 'InsertLeave' }, {
+  desc = 'set relativenumber',
+  group = vim.api.nvim_create_augroup('set_relativenumber', { clear = true }),
+  pattern = '*.*',
+  command = 'set relativenumber',
+})
+
+vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
+  desc = 'set number',
+  group = vim.api.nvim_create_augroup('set_number', { clear = true }),
+  pattern = '*.*',
+  command = 'set number norelativenumber',
+})
+
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -727,12 +744,12 @@ require('lazy').setup({
       -- end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        typescript ={ { "prettierd", "prettier" } },        -- Conform can also run multiple formatters sequentially
+        typescript = { { 'prettierd', 'prettier' } }, -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { { "prettierd", "prettier" } },
+        javascript = { { 'prettierd', 'prettier' } },
       },
     },
   },
