@@ -1,0 +1,9 @@
+return {
+  'yioneko/nvim-vtsls',
+  event = 'VeryLazy',
+  opts = {
+    settings = {
+      expose_as_code_action = 'all',
+    },
+  },
+}
